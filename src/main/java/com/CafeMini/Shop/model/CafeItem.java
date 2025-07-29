@@ -15,6 +15,7 @@ public class CafeItem {
     private  String description;
     private String category;
     private  String size;
+    private  String SpicyLevel;
     private double price;
     private boolean available;
 }
