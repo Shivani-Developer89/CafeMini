@@ -5,27 +5,53 @@ import com.CafeMini.Shop.dto.response.CafeItemResponseDTO;
 import com.CafeMini.Shop.model.CafeItem;
 import com.CafeMini.Shop.repository.CafeItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.FluentQuery;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Function;
 
 @Service
 public class CafeItemServiceImpl  implements  CafeItemService{
+    @Autowired
+    CafeItemRepository cafeItemRepository;
     @Override
     public CafeItemResponseDTO getCafeItem(Long id) {
-        return null;
+        CafeItem cafeItem = cafeItemRepository.findById(id).orElse(null);
+
+        CafeItemResponseDTO cafeItemResponseDTO = new CafeItemResponseDTO();
+
+        cafeItemResponseDTO.setId(cafeItem.getId());
+        cafeItemResponseDTO.setName(cafeItem.getName());
+        cafeItemResponseDTO.setDescription(cafeItem.getDescription());
+        cafeItemResponseDTO.setCategory(cafeItem.getCategory());
+        cafeItemResponseDTO.setSize(cafeItem.getSize());
+        cafeItemResponseDTO.setSpicyLevel(cafeItem.getSpicyLevel());
+        cafeItemResponseDTO.setPrice(cafeItem.getPrice());
+        cafeItemResponseDTO.setAvailable(cafeItem.isAvailable());
+
+        return cafeItemResponseDTO;
     }
 
+
     @Override
-    public CafeItemResponseDTO createCafeItem(CafeItemRequestDTO cafeItemRequestDTO) {
-        return null;
+    public CafeItemResponseDTO addCafeItem(CafeItemRequestDTO cafeItemRequestDTO) {
+          CafeItem cafeItem = new CafeItem();
+
+
+          cafeItem.setName(cafeItemRequestDTO.getName());
+          cafeItem.setDescription(cafeItemRequestDTO.getDescription());
+          cafeItem.setCategory(cafeItemRequestDTO.getCategory());
+          cafeItem.setSize(cafeItemRequestDTO.getSize());
+          cafeItem.setSpicyLevel(cafeItemRequestDTO.getSpicyLevel());
+          cafeItem.setPrice(cafeItem.getPrice());
+          cafeItem.setAvailable(cafeItem.isAvailable());
+
+          cafeItem = cafeItemRepository.save(cafeItem);
+
+          CafeItemResponseDTO cafeItemResponseDTO = new CafeItemResponseDTO();
+
+          cafeItemResponseDTO.setId(cafeItem.getId());
+          return  cafeItemResponseDTO;
+
     }
 
     @Override
