@@ -1,5 +1,8 @@
 package com.CafeMini.Shop.dto.response;
 
+import lombok.Data;
+
+@Data
 public class CafeItemResponseDTO {
     private Long id;
     private String name;

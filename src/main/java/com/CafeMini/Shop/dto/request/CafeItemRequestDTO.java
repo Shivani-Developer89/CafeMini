@@ -1,5 +1,8 @@
 package com.CafeMini.Shop.dto.request;
 
+import lombok.Data;
+
+@Data
 public class CafeItemRequestDTO {
     private String name;
     private  String description;

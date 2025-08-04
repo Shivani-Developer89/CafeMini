@@ -1,20 +1,30 @@
 package com.CafeMini.Shop.model;
 
-import com.fasterxml.jackson.annotation.JsonTypeId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
+
 // Cafeitem(Menu items)
 @Entity
+@Data
+@Table(name = "CafeItem")
 public class CafeItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+
     private String name;
     private  String description;
+
+    @Enumerated(EnumType.STRING)
     private String category;
+
+
+    @Enumerated(EnumType.STRING)
     private  String size;
+
+
+    @Enumerated(EnumType.STRING)
     private  String SpicyLevel;
     private double price;
     private boolean available;
