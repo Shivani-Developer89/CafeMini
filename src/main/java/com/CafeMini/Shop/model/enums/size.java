@@ -1,6 +1,6 @@
 package com.CafeMini.Shop.model.enums;
 
-public enum Size {
+public enum size {
     SMALL,
     MEDIUM,
     LARGE
