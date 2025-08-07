@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public interface CustomerService {
-    CustomerResponseDTO createCustomer(CustomerRequestDTO customerRequestDTO);
+    CustomerResponseDTO addCustomer(CustomerRequestDTO customerRequestDTO);
 
     CustomerResponseDTO getCustomer(Long id);
 
@@ -15,5 +15,5 @@ public interface CustomerService {
 
     CustomerResponseDTO updateCustomer(Long id, CustomerRequestDTO customerRequestDTO);
 
-    void deleteCustomer(Long id);
+    String deleteCustomer(Long id);
 }
