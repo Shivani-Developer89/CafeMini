@@ -10,7 +10,7 @@ import java.util.List;
 public interface CafeItemService  {
     CafeItemResponseDTO getCafeItem(Long id);
     CafeItemResponseDTO addCafeItem(CafeItemRequestDTO cafeItemRequestDTO);
-    CafeItemResponseDTO updateCafeItem(CafeItemRequestDTO cafeItemRequestDTO);
+    CafeItemResponseDTO updateCafeItem(Long id ,CafeItemRequestDTO cafeItemRequestDTO);
     List<CafeItemResponseDTO> getAllCafeItem(CafeItemRequestDTO cafeItemRequestDTO);
     String removeCafeItem(Long id);
 }
