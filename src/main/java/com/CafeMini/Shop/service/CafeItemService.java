@@ -11,6 +11,6 @@ public interface CafeItemService  {
     CafeItemResponseDTO getCafeItem(Long id);
     CafeItemResponseDTO addCafeItem(CafeItemRequestDTO cafeItemRequestDTO);
     CafeItemResponseDTO updateCafeItem(Long id ,CafeItemRequestDTO cafeItemRequestDTO);
-    List<CafeItemResponseDTO> getAllCafeItem(CafeItemRequestDTO cafeItemRequestDTO);
+    List<CafeItemResponseDTO> getAllCafeItem();
     String removeCafeItem(Long id);
 }
