@@ -1,6 +1,8 @@
 package com.CafeMini.Shop.service;
 
+import com.CafeMini.Shop.dto.request.CafeItemRequestDTO;
 import com.CafeMini.Shop.dto.request.CustomerRequestDTO;
+import com.CafeMini.Shop.dto.response.CafeItemResponseDTO;
 import com.CafeMini.Shop.dto.response.CustomerResponseDTO;
 import org.springframework.stereotype.Service;
 
