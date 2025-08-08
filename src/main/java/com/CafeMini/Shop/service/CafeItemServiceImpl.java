@@ -90,8 +90,10 @@ public class CafeItemServiceImpl  implements  CafeItemService{
         return  cafeItemResponseDTO;
     }
 
+
+
     @Override
-    public List<CafeItemResponseDTO> getAllCafeItem(CafeItemRequestDTO cafeItemRequestDTO) {
+    public List<CafeItemResponseDTO> getAllCafeItem() {
         List<CafeItem> cafeItemList = cafeItemRepository.findAll();
         List<CafeItemResponseDTO> cafeItemResponseDTOList = new ArrayList<>();
          for(CafeItem cafeItem :cafeItemList){
