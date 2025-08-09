@@ -25,13 +25,19 @@ public class OrderItemServiceImpl  implements OrderItemService{
 
         orderItemResponseDTO.setQuantity(orderItem.getQuantity());
         orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
+        orderItemResponseDTO.setItemPrice(orderItem.getQuantity());
 
         return orderItemResponseDTO;
     }
 
     @Override
     public OrderItemResponseDTO getOrder(Long id) {
-        return null;
+        OrderItem orderItem =orderItemRepository.findById(id).orElse(null);
+        OrderItemResponseDTO orderItemResponseDTO = new OrderItemResponseDTO();
+
+        orderItemResponseDTO.setId(orderItem.getId());
+        orderItemResponseDTO.setQuantity(orderItem.getQuantity());
+        return orderItemResponseDTO;
     }
 
     @Override
