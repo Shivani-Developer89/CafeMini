@@ -7,6 +7,7 @@ import com.CafeMini.Shop.repository.OrderItemRepository;
 import org.hibernate.query.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderItemServiceImpl  implements OrderItemService{
@@ -25,7 +26,7 @@ public class OrderItemServiceImpl  implements OrderItemService{
 
         orderItemResponseDTO.setQuantity(orderItem.getQuantity());
         orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
-        orderItemResponseDTO.setItemPrice(orderItem.getQuantity());
+        orderItemResponseDTO.setQuantity(orderItem.getQuantity());
 
         return orderItemResponseDTO;
     }
@@ -37,21 +38,49 @@ public class OrderItemServiceImpl  implements OrderItemService{
 
         orderItemResponseDTO.setId(orderItem.getId());
         orderItemResponseDTO.setQuantity(orderItem.getQuantity());
+        orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
         return orderItemResponseDTO;
     }
 
     @Override
     public List<OrderItemResponseDTO> getAllOrder() {
-        return List.of();
+        List<OrderItem> orderItemList = orderItemRepository.findAll();
+        List<OrderItemResponseDTO> orderItemResponseDTOList = new ArrayList<>();
+
+        for(OrderItem orderItem :orderItemList){
+            OrderItemResponseDTO orderItemResponseDTO =new OrderItemResponseDTO();
+            orderItemResponseDTO.setId(orderItem.getId());
+            orderItemResponseDTO.setQuantity(orderItem.getQuantity());
+            orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
+
+            orderItemResponseDTOList.add(orderItemResponseDTO);
+
+        }
+        return orderItemResponseDTOList;
     }
 
     @Override
     public OrderItemResponseDTO updateOrder(Long id, OrderItemRequestDTO orderItemRequestDTO) {
-        return null;
+        OrderItem orderItem = new OrderItem();
+
+        orderItem.setQuantity(orderItemRequestDTO.getQuantity());
+        orderItem.setItemPrice(orderItemRequestDTO.getItemPrice());
+
+        orderItem =orderItemRepository.save(orderItem);
+
+        OrderItemResponseDTO orderItemResponseDTO = new OrderItemResponseDTO();
+
+        orderItemResponseDTO.setQuantity(orderItem.getQuantity());
+        orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
+        orderItemResponseDTO.setItemPrice(orderItem.getQuantity());
+
+        return orderItemResponseDTO;
+
     }
 
     @Override
     public String removeOrder(Long id) {
-        return "";
+        String name = orderItemRepository.findById(id).orElse(null).getItemName();
+        return "Order item with ID "+ id + " has been deleted successfully;";
     }
 }
