@@ -17,6 +17,7 @@ public class OrderItemServiceImpl  implements OrderItemService{
     public OrderItemResponseDTO addOrder(OrderItemRequestDTO orderItemRequestDTO) {
         OrderItem orderItem = new OrderItem();
 
+
         orderItem.setQuantity(orderItemRequestDTO.getQuantity());
         orderItem.setItemPrice(orderItemRequestDTO.getItemPrice());
 
@@ -24,9 +25,10 @@ public class OrderItemServiceImpl  implements OrderItemService{
 
         OrderItemResponseDTO orderItemResponseDTO = new OrderItemResponseDTO();
 
+        orderItemResponseDTO.setId(orderItem.getId());
         orderItemResponseDTO.setQuantity(orderItem.getQuantity());
         orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
-        orderItemResponseDTO.setQuantity(orderItem.getQuantity());
+
 
         return orderItemResponseDTO;
     }
@@ -63,6 +65,7 @@ public class OrderItemServiceImpl  implements OrderItemService{
     public OrderItemResponseDTO updateOrder(Long id, OrderItemRequestDTO orderItemRequestDTO) {
         OrderItem orderItem = new OrderItem();
 
+        orderItem.setId(id);
         orderItem.setQuantity(orderItemRequestDTO.getQuantity());
         orderItem.setItemPrice(orderItemRequestDTO.getItemPrice());
 
@@ -70,9 +73,9 @@ public class OrderItemServiceImpl  implements OrderItemService{
 
         OrderItemResponseDTO orderItemResponseDTO = new OrderItemResponseDTO();
 
+        orderItemResponseDTO.setId(orderItem.getId());
         orderItemResponseDTO.setQuantity(orderItem.getQuantity());
         orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
-        orderItemResponseDTO.setItemPrice(orderItem.getQuantity());
 
         return orderItemResponseDTO;
 
