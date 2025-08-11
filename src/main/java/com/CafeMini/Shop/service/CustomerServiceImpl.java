@@ -21,6 +21,7 @@ public class CustomerServiceImpl  implements CustomerService{
     public CustomerResponseDTO addCustomer(CustomerRequestDTO customerRequestDTO) {
         Customer customer = new Customer();
 
+
         customer.setName(customerRequestDTO.getName());
         customer.setEmail(customerRequestDTO.getEmail());
         customer.setPhone(customerRequestDTO.getPhone());
@@ -29,6 +30,7 @@ public class CustomerServiceImpl  implements CustomerService{
 
         CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO();
 
+        customerResponseDTO.setId(customer.getId());
         customerResponseDTO.setName(customer.getName());
         customerResponseDTO.setEmail(customer.getEmail());
         customerResponseDTO.setPhone(customer.getPhone());
@@ -76,6 +78,7 @@ public class CustomerServiceImpl  implements CustomerService{
     public CustomerResponseDTO updateCustomer(Long id, CustomerRequestDTO customerRequestDTO) {
         Customer customer = new Customer();
 
+        customer.setId(id);
         customer.setName(customerRequestDTO.getName());
         customer.setEmail(customerRequestDTO.getEmail());
         customer.setPhone(customerRequestDTO.getPhone());
@@ -84,6 +87,7 @@ public class CustomerServiceImpl  implements CustomerService{
 
         CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO();
 
+        customerResponseDTO.setId(customer.getId());
         customerResponseDTO.setName(customer.getName());
         customerResponseDTO.setEmail(customer.getEmail());
         customerResponseDTO.setPhone(customer.getPhone());
