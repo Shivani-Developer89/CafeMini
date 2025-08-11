@@ -67,6 +67,7 @@ public class CafeItemServiceImpl  implements  CafeItemService{
         CafeItem cafeItem = new CafeItem();
 
 
+        cafeItem.setId(id);
         cafeItem.setName(cafeItemRequestDTO.getName());
         cafeItem.setDescription(cafeItemRequestDTO.getDescription());
         cafeItem.setCategory(cafeItemRequestDTO.getCategory());
