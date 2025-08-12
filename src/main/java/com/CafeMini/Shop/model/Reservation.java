@@ -1,9 +1,7 @@
 package com.CafeMini.Shop.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.CafeMini.Shop.model.enums.Status;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -18,5 +16,6 @@ public class Reservation {
     private LocalDateTime reservationTime;
     private int numberOfPeople;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 }

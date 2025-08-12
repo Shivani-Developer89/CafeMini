@@ -1,5 +1,6 @@
 package com.CafeMini.Shop.dto.response;
 
+import com.CafeMini.Shop.model.enums.Status;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -11,6 +12,6 @@ public class ReservationResponseDTO {
     private LocalDateTime reservationTime;
     private int numberOfPeople;
 
-    private String status;
+    private Status status;
 
 }
