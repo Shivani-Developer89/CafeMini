@@ -3,6 +3,7 @@ package com.CafeMini.Shop.service;
 import com.CafeMini.Shop.dto.request.CafeItemRequestDTO;
 import com.CafeMini.Shop.dto.response.CafeItemResponseDTO;
 import com.CafeMini.Shop.model.CafeItem;
+import com.CafeMini.Shop.model.enums.Available;
 import com.CafeMini.Shop.repository.CafeItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class CafeItemServiceImpl  implements  CafeItemService{
         cafeItemResponseDTO.setSize(cafeItem.getSize());
         cafeItemResponseDTO.setSpicyLevel(cafeItem.getSpicyLevel());
         cafeItemResponseDTO.setPrice(cafeItem.getPrice());
-        cafeItemResponseDTO.setAvailable(cafeItem.isAvailable());
+        cafeItemResponseDTO.setAvailable(cafeItem.getAvailable());
 
         return cafeItemResponseDTO;
     }
@@ -44,9 +45,10 @@ public class CafeItemServiceImpl  implements  CafeItemService{
           cafeItem.setSize(cafeItemRequestDTO.getSize());
           cafeItem.setSpicyLevel(cafeItemRequestDTO.getSpicyLevel());
           cafeItem.setPrice(cafeItem.getPrice());
-          cafeItem.setAvailable(cafeItem.isAvailable());
+          cafeItem.setAvailable(Available.AVAILABLE);
 
-          cafeItem = cafeItemRepository.save(cafeItem);
+
+        cafeItem = cafeItemRepository.save(cafeItem);
 
           CafeItemResponseDTO cafeItemResponseDTO = new CafeItemResponseDTO();
 
@@ -57,7 +59,7 @@ public class CafeItemServiceImpl  implements  CafeItemService{
           cafeItemResponseDTO.setSize(cafeItem.getSize());
           cafeItemResponseDTO.setSpicyLevel(cafeItem.getSpicyLevel());
           cafeItemResponseDTO.setPrice(cafeItem.getPrice());
-          cafeItemResponseDTO.setAvailable(cafeItem.isAvailable());
+          cafeItemResponseDTO.setAvailable(Available.AVAILABLE);
           return  cafeItemResponseDTO;
 
     }
@@ -74,7 +76,8 @@ public class CafeItemServiceImpl  implements  CafeItemService{
         cafeItem.setSize(cafeItemRequestDTO.getSize());
         cafeItem.setSpicyLevel(cafeItemRequestDTO.getSpicyLevel());
         cafeItem.setPrice(cafeItem.getPrice());
-        cafeItem.setAvailable(cafeItem.isAvailable());
+        cafeItem.setAvailable(Available.AVAILABLE);
+
 
         cafeItem = cafeItemRepository.save(cafeItem);
 
@@ -87,7 +90,7 @@ public class CafeItemServiceImpl  implements  CafeItemService{
         cafeItemResponseDTO.setSize(cafeItem.getSize());
         cafeItemResponseDTO.setSpicyLevel(cafeItem.getSpicyLevel());
         cafeItemResponseDTO.setPrice(cafeItem.getPrice());
-        cafeItemResponseDTO.setAvailable(cafeItem.isAvailable());
+        cafeItemResponseDTO.setAvailable(Available.AVAILABLE);
         return  cafeItemResponseDTO;
     }
 
@@ -107,7 +110,7 @@ public class CafeItemServiceImpl  implements  CafeItemService{
              cafeItemResponseDTO.setSize(cafeItem.getSize());
              cafeItemResponseDTO.setSpicyLevel(cafeItem.getSpicyLevel());
              cafeItemResponseDTO.setPrice(cafeItem.getPrice());
-             cafeItemResponseDTO.setAvailable(cafeItem.isAvailable());
+             cafeItemResponseDTO.setAvailable(cafeItem.getAvailable());
 
              cafeItemResponseDTOList.add(cafeItemResponseDTO);
          }

@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public interface CafeItemService  {
-    CafeItemResponseDTO getCafeItem(Long id);
+     CafeItemResponseDTO getCafeItem(Long id);
     CafeItemResponseDTO addCafeItem(CafeItemRequestDTO cafeItemRequestDTO);
     CafeItemResponseDTO updateCafeItem(Long id ,CafeItemRequestDTO cafeItemRequestDTO);
     List<CafeItemResponseDTO> getAllCafeItem();

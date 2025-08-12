@@ -1,5 +1,9 @@
 package com.CafeMini.Shop.model;
 
+import com.CafeMini.Shop.model.enums.Available;
+import com.CafeMini.Shop.model.enums.Category;
+import com.CafeMini.Shop.model.enums.Size;
+import com.CafeMini.Shop.model.enums.SpicyLevel;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,15 +21,16 @@ public class CafeItem {
     private  String description;
 
     @Enumerated(EnumType.STRING)
-    private String category;
+    private Category category;
 
 
     @Enumerated(EnumType.STRING)
-    private  String size;
+    private Size size;
 
 
     @Enumerated(EnumType.STRING)
-    private  String SpicyLevel;
+    private SpicyLevel spicyLevel;
     private double price;
-    private boolean available;
+    @Enumerated(EnumType.STRING)
+    private Available available;
 }
