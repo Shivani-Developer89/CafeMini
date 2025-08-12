@@ -1,6 +1,6 @@
 package com.CafeMini.Shop.model.enums;
 
-public enum category {
+public enum Category {
     COFFEE,
     TEA,
     COLD_BEVERAGES,
