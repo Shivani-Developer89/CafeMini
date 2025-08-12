@@ -6,10 +6,12 @@ import com.CafeMini.Shop.model.OrderItem;
 import com.CafeMini.Shop.repository.OrderItemRepository;
 import org.hibernate.query.Order;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class OrderItemServiceImpl  implements OrderItemService{
     @Autowired
     OrderItemRepository orderItemRepository;
