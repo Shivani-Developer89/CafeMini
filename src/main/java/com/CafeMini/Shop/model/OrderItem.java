@@ -4,6 +4,8 @@ import com.CafeMini.Shop.model.enums.ItemName;
 import jakarta.persistence.*;
 import lombok.Data;
 
+
+
 @Entity
 @Data
 @Table(name = "OrderItem")
@@ -15,4 +17,6 @@ public class OrderItem {
     private ItemName itemName;
     private int quantity;
     private double itemPrice;
+
+
 }
