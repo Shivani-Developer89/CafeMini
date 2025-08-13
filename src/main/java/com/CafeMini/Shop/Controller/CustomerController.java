@@ -32,7 +32,7 @@ public class CustomerController {
     public ResponseEntity<List> getAllCustomer(){
         return new ResponseEntity<>(customerService.getAllCustomers(),HttpStatusCode.valueOf(200));
     }
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public  ResponseEntity<CustomerResponseDTO> updateCustomer(@PathVariable Long id, @RequestBody CustomerRequestDTO customerRequestDTO){
         return  new ResponseEntity<>(customerService.updateCustomer(id, customerRequestDTO),HttpStatusCode.valueOf(200));
     }
