@@ -1,13 +1,13 @@
 package com.CafeMini.Shop.service;
 
 import com.CafeMini.Shop.dto.request.ReservationRequestDTO;
-import com.CafeMini.Shop.dto.response.OrderItemResponseDTO;
 import com.CafeMini.Shop.dto.response.ReservationResponseDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+
 public interface ReservationService {
     ReservationResponseDTO createReservation(ReservationRequestDTO reservationRequestDTO);
     ReservationResponseDTO getReservation(Long id);

@@ -5,7 +5,6 @@ import com.CafeMini.Shop.dto.response.ReservationResponseDTO;
 import com.CafeMini.Shop.model.Reservation;
 import com.CafeMini.Shop.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
