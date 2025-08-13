@@ -4,7 +4,6 @@ import com.CafeMini.Shop.dto.request.OrderItemRequestDTO;
 import com.CafeMini.Shop.dto.response.OrderItemResponseDTO;
 import com.CafeMini.Shop.model.OrderItem;
 import com.CafeMini.Shop.repository.OrderItemRepository;
-import org.hibernate.query.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -85,7 +84,12 @@ public class OrderItemServiceImpl  implements OrderItemService{
 
     @Override
     public String removeOrder(Long id) {
-        String name = orderItemRepository.findById(id).orElse(null).getItemName();
-        return "Order item with ID "+ id + " has been deleted successfully;";
+        String name = orderItemRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Order item not found with ID: " + id))
+                .getItemName()
+                .name();
+
+        orderItemRepository.deleteById(id);
+        return "Order item with ID "+ id + "  and "+ name +" has been deleted successfully;";
     }
 }
