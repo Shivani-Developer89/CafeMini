@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/CafeItem")
+@RequestMapping("/cafe-items")
 public class CafeItemController {
     @Autowired
     CafeItemService cafeItemService;
