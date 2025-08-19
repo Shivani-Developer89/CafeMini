@@ -44,7 +44,7 @@ public class CafeItemServiceImpl  implements  CafeItemService{
           cafeItem.setCategory(cafeItemRequestDTO.getCategory());
           cafeItem.setSize(cafeItemRequestDTO.getSize());
           cafeItem.setSpicyLevel(cafeItemRequestDTO.getSpicyLevel());
-          cafeItem.setPrice(cafeItem.getPrice());
+          cafeItem.setPrice(cafeItemRequestDTO.getPrice());
           cafeItem.setAvailable(Available.AVAILABLE);
 
 
@@ -75,7 +75,7 @@ public class CafeItemServiceImpl  implements  CafeItemService{
         cafeItem.setCategory(cafeItemRequestDTO.getCategory());
         cafeItem.setSize(cafeItemRequestDTO.getSize());
         cafeItem.setSpicyLevel(cafeItemRequestDTO.getSpicyLevel());
-        cafeItem.setPrice(cafeItem.getPrice());
+        cafeItem.setPrice(cafeItemRequestDTO.getPrice());
         cafeItem.setAvailable(Available.AVAILABLE);
 
 
