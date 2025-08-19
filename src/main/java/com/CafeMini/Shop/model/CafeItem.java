@@ -30,7 +30,9 @@ public class CafeItem {
 
     @Enumerated(EnumType.STRING)
     private SpicyLevel spicyLevel;
+
     private double price;
+
     @Enumerated(EnumType.STRING)
     private Available available;
 }
