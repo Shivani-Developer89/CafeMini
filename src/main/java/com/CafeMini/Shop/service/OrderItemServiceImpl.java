@@ -21,6 +21,7 @@ public class OrderItemServiceImpl  implements OrderItemService{
 
         orderItem.setQuantity(orderItemRequestDTO.getQuantity());
         orderItem.setItemPrice(orderItemRequestDTO.getItemPrice());
+        orderItem.setOrderItemName(orderItemRequestDTO.getOrderItemName());
 
         orderItem =orderItemRepository.save(orderItem);
 
@@ -29,6 +30,7 @@ public class OrderItemServiceImpl  implements OrderItemService{
         orderItemResponseDTO.setId(orderItem.getId());
         orderItemResponseDTO.setQuantity(orderItem.getQuantity());
         orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
+        orderItemResponseDTO.setOrderItemName(orderItem.getOrderItemName());
 
 
         return orderItemResponseDTO;
@@ -42,6 +44,7 @@ public class OrderItemServiceImpl  implements OrderItemService{
         orderItemResponseDTO.setId(orderItem.getId());
         orderItemResponseDTO.setQuantity(orderItem.getQuantity());
         orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
+        orderItemResponseDTO.setOrderItemName(orderItem.getOrderItemName());
         return orderItemResponseDTO;
     }
 
@@ -55,6 +58,7 @@ public class OrderItemServiceImpl  implements OrderItemService{
             orderItemResponseDTO.setId(orderItem.getId());
             orderItemResponseDTO.setQuantity(orderItem.getQuantity());
             orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
+            orderItemResponseDTO.setOrderItemName(orderItem.getOrderItemName());
 
             orderItemResponseDTOList.add(orderItemResponseDTO);
 
@@ -69,6 +73,7 @@ public class OrderItemServiceImpl  implements OrderItemService{
         orderItem.setId(id);
         orderItem.setQuantity(orderItemRequestDTO.getQuantity());
         orderItem.setItemPrice(orderItemRequestDTO.getItemPrice());
+        orderItem.setOrderItemName(orderItemRequestDTO.getOrderItemName());
 
         orderItem =orderItemRepository.save(orderItem);
 
@@ -77,6 +82,7 @@ public class OrderItemServiceImpl  implements OrderItemService{
         orderItemResponseDTO.setId(orderItem.getId());
         orderItemResponseDTO.setQuantity(orderItem.getQuantity());
         orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
+        orderItemResponseDTO.setOrderItemName(orderItem.getOrderItemName());
 
         return orderItemResponseDTO;
 
@@ -86,7 +92,7 @@ public class OrderItemServiceImpl  implements OrderItemService{
     public String removeOrder(Long id) {
         String name = orderItemRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Order item not found with ID: " + id))
-                .getItemName()
+                .getOrderItemName()
                 .name();
 
         orderItemRepository.deleteById(id);
