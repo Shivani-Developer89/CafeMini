@@ -1,15 +1,12 @@
 package com.CafeMini.Shop.dto.response;
 
-import com.CafeMini.Shop.model.enums.Available;
-import com.CafeMini.Shop.model.enums.Category;
-import com.CafeMini.Shop.model.enums.Size;
-import com.CafeMini.Shop.model.enums.SpicyLevel;
+import com.CafeMini.Shop.model.enums.*;
 import lombok.Data;
 
 @Data
 public class CafeItemResponseDTO {
     private Long id;
-    private String itemName;
+    private ItemName itemName;
     private  String description;
     private Category category;
     private Size size;

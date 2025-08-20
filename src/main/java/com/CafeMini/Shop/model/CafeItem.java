@@ -1,11 +1,11 @@
 package com.CafeMini.Shop.model;
 
-import com.CafeMini.Shop.model.enums.Available;
-import com.CafeMini.Shop.model.enums.Category;
-import com.CafeMini.Shop.model.enums.Size;
-import com.CafeMini.Shop.model.enums.SpicyLevel;
+import com.CafeMini.Shop.model.enums.*;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 // Cafeitem(Menu items)
 @Entity
@@ -17,7 +17,9 @@ public class CafeItem {
     private Long id;
 
 
-    private String itemName;
+
+    @Enumerated(EnumType.STRING)  // use enum instead of String
+    private ItemName itemName;
     private  String description;
 
     @Enumerated(EnumType.STRING)
@@ -35,4 +37,7 @@ public class CafeItem {
 
     @Enumerated(EnumType.STRING)
     private Available available;
+
+    @OneToMany(mappedBy = "cafeItem")
+    private List<OrderItem> orderItems = new ArrayList<>();
 }
