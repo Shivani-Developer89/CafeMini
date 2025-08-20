@@ -14,7 +14,7 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Enumerated(EnumType.STRING)
-    private ItemName itemName;
+    private ItemName orderItemName;
     private int quantity;
     private double itemPrice;
 

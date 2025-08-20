@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class OrderItemResponseDTO {
     private Long id;
-    private ItemName itemName;
+    private ItemName orderItemName;
     private int quantity;
     private double itemPrice;
 }
