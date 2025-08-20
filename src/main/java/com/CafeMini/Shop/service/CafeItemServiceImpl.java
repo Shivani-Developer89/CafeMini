@@ -120,11 +120,18 @@ public class CafeItemServiceImpl  implements  CafeItemService{
 
     @Override
     public String removeCafeItem(Long id) {
-        String name = cafeItemRepository.findById(id).orElse(null).getItemName();
-        cafeItemRepository.deleteById(id);
-        return  " CafeItem name : " + name + " and ID: " +id + "has been removed successfully!";
+            CafeItem cafeItem = cafeItemRepository.findById(id).orElse(null);
 
+            if (cafeItem == null) {
+                return "CafeItem with ID: " + id + " not found!";
+            }
 
-    }
+            String name = cafeItem.getItemName().name(); // enum -> String
+
+            cafeItemRepository.deleteById(id);
+
+            return "CafeItem name: " + name + " and ID: " + id + " has been removed successfully!";
+        }
+
 }
 
