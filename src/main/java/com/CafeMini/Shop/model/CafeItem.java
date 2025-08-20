@@ -17,7 +17,7 @@ public class CafeItem {
     private Long id;
 
 
-    private String name;
+    private String itemName;
     private  String description;
 
     @Enumerated(EnumType.STRING)

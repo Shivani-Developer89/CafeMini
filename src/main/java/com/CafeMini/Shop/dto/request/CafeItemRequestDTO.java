@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 public class CafeItemRequestDTO {
-    private String name;
+    private String itemName;
     private  String description;
     private Category category;
     private Size size;

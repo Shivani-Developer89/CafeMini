@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class CafeItemResponseDTO {
     private Long id;
-    private String name;
+    private String itemName;
     private  String description;
     private Category category;
     private Size size;

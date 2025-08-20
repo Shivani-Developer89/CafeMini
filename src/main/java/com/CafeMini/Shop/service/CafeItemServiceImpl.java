@@ -22,7 +22,7 @@ public class CafeItemServiceImpl  implements  CafeItemService{
         CafeItemResponseDTO cafeItemResponseDTO = new CafeItemResponseDTO();
 
         cafeItemResponseDTO.setId(cafeItem.getId());
-        cafeItemResponseDTO.setName(cafeItem.getName());
+        cafeItemResponseDTO.setItemName(cafeItem.getItemName());
         cafeItemResponseDTO.setDescription(cafeItem.getDescription());
         cafeItemResponseDTO.setCategory(cafeItem.getCategory());
         cafeItemResponseDTO.setSize(cafeItem.getSize());
@@ -39,7 +39,7 @@ public class CafeItemServiceImpl  implements  CafeItemService{
           CafeItem cafeItem = new CafeItem();
 
 
-          cafeItem.setName(cafeItemRequestDTO.getName());
+          cafeItem.setItemName(cafeItemRequestDTO.getItemName());
           cafeItem.setDescription(cafeItemRequestDTO.getDescription());
           cafeItem.setCategory(cafeItemRequestDTO.getCategory());
           cafeItem.setSize(cafeItemRequestDTO.getSize());
@@ -53,7 +53,7 @@ public class CafeItemServiceImpl  implements  CafeItemService{
           CafeItemResponseDTO cafeItemResponseDTO = new CafeItemResponseDTO();
 
           cafeItemResponseDTO.setId(cafeItem.getId());
-          cafeItemResponseDTO.setName(cafeItem.getName());
+          cafeItemResponseDTO.setItemName(cafeItem.getItemName());
           cafeItemResponseDTO.setDescription(cafeItem.getDescription());
           cafeItemResponseDTO.setCategory(cafeItem.getCategory());
           cafeItemResponseDTO.setSize(cafeItem.getSize());
@@ -70,7 +70,7 @@ public class CafeItemServiceImpl  implements  CafeItemService{
 
 
         cafeItem.setId(id);
-        cafeItem.setName(cafeItemRequestDTO.getName());
+        cafeItem.setItemName(cafeItemRequestDTO.getItemName());
         cafeItem.setDescription(cafeItemRequestDTO.getDescription());
         cafeItem.setCategory(cafeItemRequestDTO.getCategory());
         cafeItem.setSize(cafeItemRequestDTO.getSize());
@@ -84,7 +84,7 @@ public class CafeItemServiceImpl  implements  CafeItemService{
         CafeItemResponseDTO cafeItemResponseDTO = new CafeItemResponseDTO();
 
         cafeItemResponseDTO.setId(cafeItem.getId());
-        cafeItemResponseDTO.setName(cafeItem.getName());
+        cafeItemResponseDTO.setItemName(cafeItem.getItemName());
         cafeItemResponseDTO.setDescription(cafeItem.getDescription());
         cafeItemResponseDTO.setCategory(cafeItem.getCategory());
         cafeItemResponseDTO.setSize(cafeItem.getSize());
@@ -104,7 +104,7 @@ public class CafeItemServiceImpl  implements  CafeItemService{
              CafeItemResponseDTO cafeItemResponseDTO= new CafeItemResponseDTO();
 
              cafeItemResponseDTO.setId(cafeItem.getId());
-             cafeItemResponseDTO.setName(cafeItem.getName());
+             cafeItemResponseDTO.setItemName(cafeItem.getItemName());
              cafeItemResponseDTO.setDescription(cafeItem.getDescription());
              cafeItemResponseDTO.setCategory(cafeItem.getCategory());
              cafeItemResponseDTO.setSize(cafeItem.getSize());
@@ -120,7 +120,7 @@ public class CafeItemServiceImpl  implements  CafeItemService{
 
     @Override
     public String removeCafeItem(Long id) {
-        String name = cafeItemRepository.findById(id).orElse(null).getName();
+        String name = cafeItemRepository.findById(id).orElse(null).getItemName();
         cafeItemRepository.deleteById(id);
         return  " CafeItem name : " + name + " and ID: " +id + "has been removed successfully!";
 
