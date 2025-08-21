@@ -19,25 +19,25 @@ public class OrderItemController {
 
     @PostMapping()
     public ResponseEntity<OrderItemResponseDTO> addOrder(@RequestBody OrderItemRequestDTO orderItemRequestDTO) {
-        return new ResponseEntity<>(orderItemService.addOrder(orderItemRequestDTO), HttpStatusCode.valueOf(201));
+        return new ResponseEntity<>(orderItemService.addOrderItem(orderItemRequestDTO), HttpStatusCode.valueOf(201));
 
     }
     @GetMapping("/{id}")
     public ResponseEntity<OrderItemResponseDTO> getOrder(@PathVariable Long id){
-        return  new ResponseEntity<>(orderItemService.getOrder(id),HttpStatusCode.valueOf(200));
+        return  new ResponseEntity<>(orderItemService.getOrderItem(id),HttpStatusCode.valueOf(200));
     }
     @GetMapping()
     public ResponseEntity<List> getAllOrder(){
-        return new ResponseEntity<>(orderItemService.getAllOrder(),HttpStatusCode.valueOf(200));
+        return new ResponseEntity<>(orderItemService.getAllOrderItem(),HttpStatusCode.valueOf(200));
 
     }
     @PutMapping("/{id}")
     public ResponseEntity<OrderItemResponseDTO> updateOrder(@PathVariable Long id ,@RequestBody OrderItemRequestDTO orderItemRequestDTO){
-        return  new ResponseEntity<>(orderItemService.updateOrder(id,orderItemRequestDTO),HttpStatusCode.valueOf(200));
+        return  new ResponseEntity<>(orderItemService.updateOrderItem(id,orderItemRequestDTO),HttpStatusCode.valueOf(200));
 
     }
     @DeleteMapping()
    public ResponseEntity<String> removeOrder(@RequestParam Long id){
-        return new ResponseEntity<>(orderItemService.removeOrder(id),HttpStatusCode.valueOf(200));
+        return new ResponseEntity<>(orderItemService.removeOrderItem(id),HttpStatusCode.valueOf(200));
     }
 }
