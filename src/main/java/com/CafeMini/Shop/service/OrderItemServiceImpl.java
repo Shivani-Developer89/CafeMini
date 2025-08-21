@@ -11,54 +11,54 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class OrderItemServiceImpl  implements OrderItemService{
+public class OrderItemServiceImpl  implements OrderItemService {
     @Autowired
     OrderItemRepository orderItemRepository;
+
     @Override
-    public OrderItemResponseDTO addOrder(OrderItemRequestDTO orderItemRequestDTO) {
+    public OrderItemResponseDTO addOrderItem(OrderItemRequestDTO orderItemRequestDTO) {
         OrderItem orderItem = new OrderItem();
 
 
         orderItem.setQuantity(orderItemRequestDTO.getQuantity());
         orderItem.setItemPrice(orderItemRequestDTO.getItemPrice());
-        orderItem.setOrderItemName(orderItemRequestDTO.getOrderItemName());
 
-        orderItem =orderItemRepository.save(orderItem);
+
+        orderItem = orderItemRepository.save(orderItem);
 
         OrderItemResponseDTO orderItemResponseDTO = new OrderItemResponseDTO();
 
         orderItemResponseDTO.setId(orderItem.getId());
         orderItemResponseDTO.setQuantity(orderItem.getQuantity());
         orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
-        orderItemResponseDTO.setOrderItemName(orderItem.getOrderItemName());
 
 
         return orderItemResponseDTO;
     }
 
     @Override
-    public OrderItemResponseDTO getOrder(Long id) {
-        OrderItem orderItem =orderItemRepository.findById(id).orElse(null);
+    public OrderItemResponseDTO getOrderItem(Long id) {
+        OrderItem orderItem = orderItemRepository.findById(id).orElse(null);
         OrderItemResponseDTO orderItemResponseDTO = new OrderItemResponseDTO();
 
         orderItemResponseDTO.setId(orderItem.getId());
         orderItemResponseDTO.setQuantity(orderItem.getQuantity());
         orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
-        orderItemResponseDTO.setOrderItemName(orderItem.getOrderItemName());
+
         return orderItemResponseDTO;
     }
 
     @Override
-    public List<OrderItemResponseDTO> getAllOrder() {
+    public List<OrderItemResponseDTO> getAllOrderItem() {
         List<OrderItem> orderItemList = orderItemRepository.findAll();
         List<OrderItemResponseDTO> orderItemResponseDTOList = new ArrayList<>();
 
-        for(OrderItem orderItem :orderItemList){
-            OrderItemResponseDTO orderItemResponseDTO =new OrderItemResponseDTO();
+        for (OrderItem orderItem : orderItemList) {
+            OrderItemResponseDTO orderItemResponseDTO = new OrderItemResponseDTO();
             orderItemResponseDTO.setId(orderItem.getId());
             orderItemResponseDTO.setQuantity(orderItem.getQuantity());
             orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
-            orderItemResponseDTO.setOrderItemName(orderItem.getOrderItemName());
+
 
             orderItemResponseDTOList.add(orderItemResponseDTO);
 
@@ -67,35 +67,35 @@ public class OrderItemServiceImpl  implements OrderItemService{
     }
 
     @Override
-    public OrderItemResponseDTO updateOrder(Long id, OrderItemRequestDTO orderItemRequestDTO) {
+    public OrderItemResponseDTO updateOrderItem(Long id, OrderItemRequestDTO orderItemRequestDTO) {
         OrderItem orderItem = new OrderItem();
 
         orderItem.setId(id);
         orderItem.setQuantity(orderItemRequestDTO.getQuantity());
         orderItem.setItemPrice(orderItemRequestDTO.getItemPrice());
-        orderItem.setOrderItemName(orderItemRequestDTO.getOrderItemName());
 
-        orderItem =orderItemRepository.save(orderItem);
+
+        orderItem = orderItemRepository.save(orderItem);
 
         OrderItemResponseDTO orderItemResponseDTO = new OrderItemResponseDTO();
 
         orderItemResponseDTO.setId(orderItem.getId());
         orderItemResponseDTO.setQuantity(orderItem.getQuantity());
         orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
-        orderItemResponseDTO.setOrderItemName(orderItem.getOrderItemName());
 
         return orderItemResponseDTO;
 
     }
 
     @Override
-    public String removeOrder(Long id) {
-        String name = orderItemRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Order item not found with ID: " + id))
-                .getOrderItemName()
-                .name();
+    public String removeOrderItem(Long id) {
+        OrderItem orderItem = orderItemRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Order item not found with ID: " + id));
+
+        String customerName = orderItem.getOrder().getCustomer().getName();
 
         orderItemRepository.deleteById(id);
-        return "Order item with ID "+ id + "  and "+ name +" has been deleted successfully;";
+
+        return "Order item with ID " + id + " for customer " + customerName + " has been deleted successfully.";
     }
 }

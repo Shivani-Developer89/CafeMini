@@ -8,11 +8,11 @@ import java.util.List;
 
 @Service
 public interface OrderItemService {
-    OrderItemResponseDTO addOrder(OrderItemRequestDTO orderItemRequestDTO);
-    OrderItemResponseDTO getOrder(Long id);
-   List <OrderItemResponseDTO>getAllOrder();
-   OrderItemResponseDTO updateOrder(Long id ,OrderItemRequestDTO orderItemRequestDTO);
-   String removeOrder(Long id);
+    OrderItemResponseDTO addOrderItem(OrderItemRequestDTO orderItemRequestDTO);
+    OrderItemResponseDTO getOrderItem(Long id);
+   List <OrderItemResponseDTO>getAllOrderItem();
+   OrderItemResponseDTO updateOrderItem(Long id ,OrderItemRequestDTO orderItemRequestDTO);
+   String removeOrderItem(Long id);
 
 
 }
