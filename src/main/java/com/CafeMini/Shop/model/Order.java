@@ -1,13 +1,14 @@
 package com.CafeMini.Shop.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
 @Entity
-@Table(name = "Orders") // avoid conflict with SQL keyword "Order"
+@Table(name = "Order") // avoid conflict with SQL keyword "Order"
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
