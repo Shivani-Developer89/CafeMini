@@ -1,6 +1,5 @@
 package com.CafeMini.Shop.model;
 
-import com.CafeMini.Shop.model.enums.ItemName;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -10,7 +9,7 @@ import lombok.Data;
 public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+     private Long cafeItemId;;
 
     private int quantity;
     private double itemPrice;
