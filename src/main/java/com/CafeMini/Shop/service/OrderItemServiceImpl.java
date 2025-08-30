@@ -4,6 +4,7 @@ import com.CafeMini.Shop.dto.request.OrderItemRequestDTO;
 import com.CafeMini.Shop.dto.response.OrderItemResponseDTO;
 import com.CafeMini.Shop.model.OrderItem;
 import com.CafeMini.Shop.repository.OrderItemRepository;
+import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public class OrderItemServiceImpl  implements OrderItemService {
 
         OrderItemResponseDTO orderItemResponseDTO = new OrderItemResponseDTO();
 
-        orderItemResponseDTO.setId(orderItem.getId());
+        orderItemResponseDTO.setCafeItemId(orderItem.getCafeItemId());
         orderItemResponseDTO.setQuantity(orderItem.getQuantity());
         orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
 
@@ -41,7 +42,7 @@ public class OrderItemServiceImpl  implements OrderItemService {
         OrderItem orderItem = orderItemRepository.findById(id).orElse(null);
         OrderItemResponseDTO orderItemResponseDTO = new OrderItemResponseDTO();
 
-        orderItemResponseDTO.setId(orderItem.getId());
+        orderItemResponseDTO.setCafeItemId(orderItem.getCafeItemId());
         orderItemResponseDTO.setQuantity(orderItem.getQuantity());
         orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
 
@@ -55,7 +56,7 @@ public class OrderItemServiceImpl  implements OrderItemService {
 
         for (OrderItem orderItem : orderItemList) {
             OrderItemResponseDTO orderItemResponseDTO = new OrderItemResponseDTO();
-            orderItemResponseDTO.setId(orderItem.getId());
+            orderItemResponseDTO.setCafeItemId(orderItem.getCafeItemId());
             orderItemResponseDTO.setQuantity(orderItem.getQuantity());
             orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
 
@@ -70,7 +71,7 @@ public class OrderItemServiceImpl  implements OrderItemService {
     public OrderItemResponseDTO updateOrderItem(Long id, OrderItemRequestDTO orderItemRequestDTO) {
         OrderItem orderItem = new OrderItem();
 
-        orderItem.setId(id);
+        orderItem.setCafeItemId(id);
         orderItem.setQuantity(orderItemRequestDTO.getQuantity());
         orderItem.setItemPrice(orderItemRequestDTO.getItemPrice());
 
@@ -79,7 +80,7 @@ public class OrderItemServiceImpl  implements OrderItemService {
 
         OrderItemResponseDTO orderItemResponseDTO = new OrderItemResponseDTO();
 
-        orderItemResponseDTO.setId(orderItem.getId());
+        orderItemResponseDTO.setCafeItemId(orderItem.getCafeItemId());
         orderItemResponseDTO.setQuantity(orderItem.getQuantity());
         orderItemResponseDTO.setItemPrice(orderItem.getItemPrice());
 
